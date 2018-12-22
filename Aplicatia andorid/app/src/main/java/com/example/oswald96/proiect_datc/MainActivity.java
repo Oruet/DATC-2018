@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         );
+        Button btnTemp = (Button) findViewById(R.id.btntemp);
+        btnTemp.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(MainActivity.this, TempActivity.class);
+                startActivity(intent);
+            }
+        }
+        );
     }
 
     public boolean isServicesOK()
