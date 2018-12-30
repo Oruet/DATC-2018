@@ -1,0 +1,7 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=deposit12;AccountKey=CAK9tTIvehNarQQEDBErP8JebPRJeyv2jj5tn6cIdMPkY06vrg0PnmnRVdmK6OC6j4OzGuFUHaedmXZWRmGNOg==;BlobEndpoint=https://deposit12.blob.core.windows.net/;TableEndpoint=https://deposit12.table.core.windows.net/;QueueEndpoint=https://deposit12.queue.core.windows.net/;FileEndpoint=https://deposit12.file.core.windows.net/",
+        "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=deposit12;AccountKey=CAK9tTIvehNarQQEDBErP8JebPRJeyv2jj5tn6cIdMPkY06vrg0PnmnRVdmK6OC6j4OzGuFUHaedmXZWRmGNOg==;BlobEndpoint=https://deposit12.blob.core.windows.net/;TableEndpoint=https://deposit12.table.core.windows.net/;QueueEndpoint=https://deposit12.queue.core.windows.net/;FileEndpoint=https://deposit12.file.core.windows.net/"
+    }
+}
