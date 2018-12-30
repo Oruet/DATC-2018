@@ -107,7 +107,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             Log.d(TAG, "OnComplete: found location");
                             Location currentLocation= (Location)task.getResult();
                             mMap.setMinZoomPreference(15.0f);
-                            mMap.setMaxZoomPreference(17.0f);
+                            mMap.setMaxZoomPreference(16.5f);
                             //moveCamera(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), 15);
                             moveCamera(new LatLng(45.733516, 21.241824), 16, 0);
                         }
