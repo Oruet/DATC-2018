@@ -29,7 +29,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".MapActivity" />
-        <activity android:name=".TempActivity"></activity>
+        <activity android:name=".TempActivity" />
+        <activity
+            android:name=".TempGraphActivity"
+            android:label="@string/title_activity_graph"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UmidActivity" />
+        <activity android:name=".UmidGraphActivity"></activity>
     </application>
 
 </manifest>

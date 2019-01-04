@@ -23,7 +23,7 @@ import java.util.Set;
 import cz.msebera.android.httpclient.Header;
 
 
-public class TempActivity extends AppCompatActivity {
+public class UmidActivity extends AppCompatActivity {
     TextView txtData;
     ListView listadate;
     Spinner dropdown;
@@ -36,12 +36,10 @@ public class TempActivity extends AppCompatActivity {
     List<String> listdrop = new ArrayList<String>();
     List<String> aux2 = new ArrayList<String>();
 
-    private static AsyncHttpClient client = new AsyncHttpClient();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temp);
+        setContentView(R.layout.activity_umid);
         txtData = (TextView) findViewById(R.id.txtdata);
         listadate = (ListView) findViewById(R.id.listadate);
         dropdown = (Spinner) findViewById(R.id.dropdown);
@@ -52,7 +50,7 @@ public class TempActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONArray success) {
                         super.onSuccess(statusCode, headers, success);
-                        Toast.makeText(TempActivity.this, "OnSucces Call", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UmidActivity.this, "OnSucces Call", Toast.LENGTH_SHORT).show();
                         try{
                             final ArrayList<String> list = new ArrayList<String>();
                             for(int j = 0; j<success.length();j++)
@@ -88,14 +86,14 @@ public class TempActivity extends AppCompatActivity {
                                     list.add(date[i]);
                                 }
                                 DateSenzori datefinale = new DateSenzori(idSenzor, temperatura, umiditate, dataPreluare);
-                                dateSenzori.add(datefinale.toString(1));
+                                dateSenzori.add(datefinale.toString(2));
                             }
-                            ArrayAdapter adapter = new ArrayAdapter<String>(TempActivity.this, android.R.layout.simple_list_item_1, dateSenzori);
+                            ArrayAdapter adapter = new ArrayAdapter<String>(UmidActivity.this, android.R.layout.simple_list_item_1, dateSenzori);
                             listadate.setAdapter(adapter);
                             Set<String> set = new HashSet<>(listdrop);
                             listdrop.clear();
                             listdrop.addAll(set);
-                            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(TempActivity.this, android.R.layout.simple_spinner_item, listdrop);
+                            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(UmidActivity.this, android.R.layout.simple_spinner_item, listdrop);
                             dropdown.setAdapter(dataAdapter);
                         }
                         catch (JSONException e){
@@ -105,17 +103,17 @@ public class TempActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
                         super.onFailure(statusCode, headers, throwable, errorResponse);
-                        Toast.makeText(TempActivity.this, "OnFail Call", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UmidActivity.this, "OnFail Call", Toast.LENGTH_SHORT).show();
                     }
-        }
+                }
         );
         dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
                 aux2.clear();
-                aux2.addAll(DateSenzori.datesenzortemp(dropdown.getSelectedItem().toString()));
-                ArrayAdapter adapter = new ArrayAdapter<String>(TempActivity.this, android.R.layout.simple_list_item_1, aux2);
+                aux2.addAll(DateSenzori.datesenzorumid(dropdown.getSelectedItem().toString()));
+                ArrayAdapter adapter = new ArrayAdapter<String>(UmidActivity.this, android.R.layout.simple_list_item_1, aux2);
                 listadate.setAdapter(adapter);
 
             }
@@ -126,13 +124,12 @@ public class TempActivity extends AppCompatActivity {
         });
         Button btngraph = (Button) findViewById(R.id.buttongrafic);
         btngraph.setOnClickListener(new View.OnClickListener() {
-                                      public void onClick(View view){
-                                          Intent intent = new Intent(TempActivity.this, TempGraphActivity.class);
-                                          intent.putExtra("mesaj", dropdown.getSelectedItem().toString());
-                                          startActivity(intent);
-                                      }
-                                  }
+                                        public void onClick(View view){
+                                            Intent intent = new Intent(UmidActivity.this, UmidGraphActivity.class);
+                                            intent.putExtra("mesaj", dropdown.getSelectedItem().toString());
+                                            startActivity(intent);
+                                        }
+                                    }
         );
-
     }
 }

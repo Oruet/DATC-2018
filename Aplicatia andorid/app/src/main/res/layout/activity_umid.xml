@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TempActivity"
-    tools:layout_editor_absoluteY="81dp">
+    tools:context=".UmidActivity">
 
     <TextView
         android:id="@+id/txtdata"
@@ -15,7 +14,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Istoricul temperaturii senzorilor"
+        android:text="Istoricul umiditatii senzorilor"
         android:textColor="?android:attr/colorForeground"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/listadate"
@@ -62,4 +61,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtdata"
         app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

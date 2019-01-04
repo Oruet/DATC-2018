@@ -4,13 +4,19 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         if(isServicesOK())
         {
             init();
@@ -46,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         }
+        );
+        Button btnUmid = (Button) findViewById(R.id.btnumid);
+        btnUmid.setOnClickListener(new View.OnClickListener() {
+                                       public void onClick(View view)
+                                       {
+                                           Intent intent = new Intent(MainActivity.this, UmidActivity.class);
+                                           startActivity(intent);
+                                       }
+                                   }
         );
     }
 

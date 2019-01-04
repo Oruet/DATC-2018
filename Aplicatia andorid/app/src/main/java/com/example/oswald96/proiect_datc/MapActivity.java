@@ -13,7 +13,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 import android.util.Log;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -33,10 +32,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.maps.android.heatmaps.Gradient;
 import com.google.maps.android.heatmaps.HeatmapTileProvider;
 import com.google.maps.android.heatmaps.WeightedLatLng;
-
 import java.util.ArrayList;
 import java.util.List;
-
+import com.loopj.android.http.*;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
     @Override
@@ -173,26 +171,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 .position(new LatLng(45.731962, 21.244463))
                 .title("Senzor6");
         mMap.addMarker(optins6);
-/*
-        PolygonOptions rectOptions1 = new PolygonOptions()
-                .add(new LatLng(45.734146, 21.241184),
-                        new LatLng(45.734146, 21.241184),
-                        new LatLng(45.734146, 21.242464),
-                        new LatLng(45.732886, 21.242464),
-                        new LatLng(45.732886, 21.241184))
-                .strokeColor(Color.RED)
-                .fillColor(Color.RED);
-        Polygon polygon1 = mMap.addPolygon(rectOptions1);
-
-        PolygonOptions rectOptions2 = new PolygonOptions()
-                .add(new LatLng(45.733912, 21.242574),
-                        new LatLng(45.733912, 21.242574),
-                        new LatLng(45.733912, 21.243764),
-                        new LatLng(45.732886, 21.243764),
-                        new LatLng(45.732886, 21.242574))
-                .strokeColor(Color.TRANSPARENT)
-                .fillColor(Color.TRANSPARENT);
-        Polygon polygon2 = mMap.addPolygon(rectOptions2);*/
 
         List<WeightedLatLng> wDat = new ArrayList<>();
         List<LatLng> list = new ArrayList<LatLng>();
@@ -226,12 +204,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         Gradient gradient1 = new Gradient(colors, startPoints);
 
-
         HeatmapTileProvider mProvider = new HeatmapTileProvider.Builder()
                 .weightedData(wDat)
                 .gradient(gradient1)
                 .build();
-
 
         mProvider.setRadius(100);
         TileOverlay mOverlay = mMap.addTileOverlay(new TileOverlayOptions().tileProvider(mProvider));
